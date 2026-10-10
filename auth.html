@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Login / Sign up — EARN MONEY</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="auth-page">
+  <aside class="auth-art">
+    <a class="brand" href="index.html"><span class="brand-mark">৳</span> EARN MONEY</a>
+    <h1>আপনার কাজের যাত্রা শুরু হোক এখান থেকেই।</h1>
+    <p>অ্যাকাউন্ট খুলুন, কাজ খুঁজুন এবং নিজের কাজের অগ্রগতি দেখুন। কোনো কাজের জন্য আগে টাকা জমা দেবেন না।</p>
+    <div class="auth-benefits"><span>✓ কাজের তালিকা ও জমা দেওয়ার সুবিধা</span><span>✓ কাজ যাচাইয়ের পর ব্যালেন্স</span><span>✓ bKash ও Nagad উত্তোলনের অনুরোধ</span></div>
+  </aside>
+  <main class="auth-main">
+    <section class="auth-card">
+      <a class="back-home" href="index.html">← হোমপেজে ফিরুন</a>
+      <h2 id="formTitle">স্বাগতম!</h2><p class="auth-sub" id="formSubtitle">আপনার অ্যাকাউন্টে লগইন করুন।</p>
+      <div class="auth-tabs"><button id="loginTab" class="active" type="button">Login</button><button id="signupTab" type="button">Sign up</button></div>
+      <div class="method-tabs"><button id="emailTab" class="active" type="button">Gmail / Email</button><button id="phoneTab" type="button">Mobile Number</button></div>
+      <button id="googleBtn" class="google-button" type="button"><span class="google-g">G</span> Continue with Google</button>
+      <div class="auth-divider">অথবা</div>
+      <form id="authForm" class="auth-form">
+        <div id="nameWrap" class="hidden"><label for="fullName">আপনার নাম</label><input id="fullName" autocomplete="name" placeholder="পুরো নাম"></div>
+        <label id="identityLabel" for="identity">Gmail / Email</label>
+        <input id="identity" autocomplete="username" placeholder="name@gmail.com" required>
+        <div id="otpWrap" class="hidden"><label for="otp">OTP কোড</label><input id="otp" inputmode="numeric" placeholder="SMS OTP"></div>
+        <label for="password" id="passwordLabel">পাসওয়ার্ড</label>
+        <input id="password" type="password" autocomplete="current-password" minlength="6" placeholder="কমপক্ষে ৬ অক্ষর" required>
+        <button id="submitAuth" class="button full" type="submit">Login</button>
+      </form>
+      <div id="authMessage" class="hidden"></div>
+      <p class="auth-switch" id="switchText">নতুন ব্যবহারকারী? <a href="#" id="switchLink">Sign up করুন</a></p>
+      <p class="auth-warning">এটি বর্তমানে ডেমো লগইন ইন্টারফেস। Google OAuth, ইমেইল যাচাই, SMS OTP এবং বাস্তব নিরাপত্তা চালু করতে Firebase Authentication বা সমমানের নিরাপদ Auth সার্ভিস যুক্ত করতে হবে। এই ডেমোতে আসল অ্যাকাউন্ট বা OTP তৈরি হয় না।</p>
+    </section>
+  </main>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+let mode="login",method="email";
+function setMode(next){mode=next;$("loginTab").classList.toggle("active",mode==="login");$("signupTab").classList.toggle("active",mode==="signup");$("nameWrap").classList.toggle("hidden",mode!=="signup");$("formTitle").textContent=mode==="login"?"স্বাগতম!":"নতুন অ্যাকাউন্ট তৈরি করুন";$("formSubtitle").textContent=mode==="login"?"আপনার অ্যাকাউন্টে লগইন করুন।":"নতুন অ্যাকাউন্ট খুলতে তথ্য দিন।";$("submitAuth").textContent=mode==="login"?"Login":"Create account";$("password").autocomplete=mode==="login"?"current-password":"new-password";$("switchText").innerHTML=mode==="login"?'নতুন ব্যবহারকারী? <a href="#" id="switchLink">Sign up করুন</a>':'আগে অ্যাকাউন্ট আছে? <a href="#" id="switchLink">Login করুন</a>';bindSwitch();$("authMessage").classList.add("hidden")}
+function bindSwitch(){$("switchLink").onclick=e=>{e.preventDefault();setMode(mode==="login"?"signup":"login")}}
+function setMethod(next){method=next;$("emailTab").classList.toggle("active",method==="email");$("phoneTab").classList.toggle("active",method==="phone");$("identityLabel").textContent=method==="email"?"Gmail / Email":"Mobile Number";$("identity").type=method==="email"?"email":"tel";$("identity").placeholder=method==="email"?"name@gmail.com":"01XXXXXXXXX";$("identity").autocomplete=method==="email"?"username":"tel";$("otpWrap").classList.add("hidden");$("otp").required=false;$("password").classList.remove("hidden");$("passwordLabel").classList.remove("hidden");$("password").required=true;$("authMessage").classList.add("hidden")}
+$("loginTab").onclick=()=>setMode("login");$("signupTab").onclick=()=>setMode("signup");$("emailTab").onclick=()=>setMethod("email");$("phoneTab").onclick=()=>setMethod("phone");bindSwitch();
+$("googleBtn").onclick=()=>{showMessage("Google দিয়ে সত্যিকারের লগইন এখনো সংযুক্ত নয়। লাইভ করতে Firebase Authentication-এ Google provider চালু করে এই বাটন যুক্ত করতে হবে।")};
+function showMessage(msg){$("authMessage").textContent=msg;$("authMessage").className="auth-message"}
+$("authForm").onsubmit=e=>{e.preventDefault();const identity=$("identity").value.trim();if(method==="phone"&&!/^01[0-9]{9}$/.test(identity)){showMessage("বাংলাদেশের মোবাইল নম্বর 01XXXXXXXXX ফরম্যাটে লিখুন।");return}if(mode==="signup"&&!$("fullName").value.trim()){showMessage("আপনার নাম লিখুন।");return}showMessage("ডেমো সীমাবদ্ধতা: এই পেজ এখনো অ্যাকাউন্ট তৈরি বা লগইন যাচাই করে না। বাস্তব Login/Sign up চালু করতে Firebase Authentication ও নিরাপদ backend সংযুক্ত করতে হবে।");};
+</script>
+</body></html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EARN MONEY — Online Tasks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">৳</span> EARN MONEY</a>
+  <nav><a href="#tasks">কাজ</a><a href="#how">কীভাবে কাজ করে</a><a href="#wallet">ব্যালেন্স</a><a class="button nav-login" href="auth.html" id="navAuth">Login / Sign up</a><button id="adminOpen" class="outline">Admin</button></nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">বাংলাদেশের জন্য মাইক্রো-টাস্ক প্ল্যাটফর্ম</p>
+      <h1>দক্ষতা কাজে লাগান।<br><span>আয়ের সুযোগ খুঁজুন।</span></h1>
+      <p>টাইপিং, ডেটা এন্ট্রি ও কনটেন্টের কাজ এক জায়গায় খুঁজুন। নির্দেশনা বুঝে কাজ জমা দিন, তারপর যাচাইয়ের ফল দেখুন।</p>
+      <div class="hero-actions"><a class="button" href="#tasks">কাজ দেখুন <span>→</span></a><a class="secondary-link" href="auth.html">ফ্রি অ্যাকাউন্ট খুলুন</a></div>
+      <p class="small-note">ডেমো সাইট: এখানে বাস্তব পেমেন্ট চালু নেই।</p>
+    </div>
+    <div class="hero-card">
+      <div class="card-top"><span class="dot"></span> কাজের ড্যাশবোর্ড <span class="pill">Preview</span></div>
+      <div class="earn-number">৳<span id="heroBalance">0</span><small>ডেমো ব্যালেন্স</small></div>
+      <div class="mini-stats"><div><b id="taskCount">0</b><small>উপলভ্য কাজ</small></div><div><b id="submittedCount">0</b><small>জমা দেওয়া</small></div></div>
+      <div class="progress"><span></span></div>
+      <p class="small-note">শুধু অনুমোদিত কাজের জন্য ব্যালেন্স যোগ হবে—প্রোডাকশনে সার্ভার থেকে যাচাই করতে হবে।</p>
+    </div>
+  </section>
+
+  <section class="stats-row">
+    <div><b>কাজের ধরন</b><span>Typing · Data · Content</span></div>
+    <div><b>পেমেন্ট পদ্ধতি</b><span>bKash · Nagad (ম্যানুয়াল যাচাই)</span></div>
+    <div><b>সুরক্ষা</b><span>কাজ যাচাই করে পেমেন্ট</span></div>
+  </section>
+
+  <section id="tasks" class="section">
+    <div class="section-head"><div><p class="eyebrow">TASK BOARD</p><h2>আপনার পরের কাজটি বেছে নিন</h2><p class="muted">কাজ জমা দিতে আগে Login / Sign up করুন।</p></div><input id="searchTask" placeholder="কাজ খুঁজুন..." aria-label="কাজ খুঁজুন"></div>
+    <div class="category-chips" id="categoryChips">
+      <button class="chip active" data-category="সব">সব কাজ</button><button class="chip" data-category="Typing">Typing</button><button class="chip" data-category="Data Entry">Data Entry</button><button class="chip" data-category="Content">Content</button><button class="chip" data-category="Client Task">Client Task</button><button class="chip" data-category="Survey">Quiz / Survey</button>
+    </div>
+    <div id="taskGrid" class="task-grid"></div>
+    <section class="ad-slot" aria-label="স্পনসরড বিজ্ঞাপন">
+      <span class="ad-label">SPONSORED LINKS · ADVERTISEMENT</span>
+      <p class="ad-intro">স্পনসরড লিংক — আগ্রহী হলে খুলুন। এগুলো বাইরের ওয়েবসাইটে নিয়ে যাবে।</p>
+      <div class="ad-link-grid">
+        <a class="ad-link-card" href="https://auctionr.org/4/464384f9f7fe70da94cb7ee64caa9dcd" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          <span class="ad-link-icon">↗</span><span><b>স্পনসরড লিংক ১</b><small>বিজ্ঞাপন · বাইরের ওয়েবসাইট</small></span><span class="ad-link-arrow">→</span>
+        </a>
+        <a class="ad-link-card" href="https://asiafilm.org/4/ed5e778da2cf4a8527f8361960b2d476" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          <span class="ad-link-icon">↗</span><span><b>স্পনসরড লিংক ২</b><small>বিজ্ঞাপন · বাইরের ওয়েবসাইট</small></span><span class="ad-link-arrow">→</span>
+        </a>
+        <a class="ad-link-card" href="https://asiafilm.org/4/de64cac11715ee15daa94bc9102d0537" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          <span class="ad-link-icon">↗</span><span><b>স্পনসরড লিংক ৩</b><small>বিজ্ঞাপন · বাইরের ওয়েবসাইট</small></span><span class="ad-link-arrow">→</span>
+        </a>
+        <a class="ad-link-card" href="https://auctionr.org/4/daa6fd42bf25ffa8c2ee416f7f7a6038" target="_blank" rel="nofollow sponsored noopener noreferrer">
+          <span class="ad-link-icon">↗</span><span><b>স্পনসরড লিংক ৪</b><small>বিজ্ঞাপন · বাইরের ওয়েবসাইট</small></span><span class="ad-link-arrow">→</span>
+        </a>
+      </div>
+      <p class="ad-disclaimer">বিজ্ঞাপনে ক্লিক করা সম্পূর্ণ ঐচ্ছিক। কাজের পুরস্কার পেতে বিজ্ঞাপনে ক্লিক করার প্রয়োজন নেই।</p>
+    </section>
+  </section>
+
+  <section id="how" class="section how-section">
+    <p class="eyebrow">HOW IT WORKS</p><h2>কাজ করার ৩টি ধাপ</h2>
+    <div class="steps"><article><span>01</span><h3>কাজ বাছুন</h3><p>কাজের নির্দেশনা, সময় ও পুরস্কার আগে দেখে নিন।</p></article><article><span>02</span><h3>প্রমাণ জমা দিন</h3><p>কাজ অনুযায়ী উত্তর বা কাজের লিংক জমা দিন।</p></article><article><span>03</span><h3>যাচাই ও পেমেন্ট</h3><p>অ্যাডমিন যাচাই করে অনুমোদন দিলে ব্যালেন্স যোগ হবে।</p></article></div>
+  </section>
+
+  <section id="wallet" class="section wallet-section">
+    <div><p class="eyebrow">YOUR WALLET</p><h2>ব্যালেন্স ও উত্তোলন</h2><p class="muted">এই স্টার্টার সংস্করণে তথ্য আপনার এই ব্রাউজারেই থাকে। বাস্তব পেমেন্টের আগে নিরাপদ সার্ভার ও ডেটাবেস যুক্ত করতে হবে।</p></div>
+    <div class="wallet-card"><small>ডেমো ব্যালেন্স</small><div class="wallet-amount">৳<span id="walletBalance">0</span></div>
+      <form id="withdrawForm">
+        <label for="method">পেমেন্ট পদ্ধতি</label><select id="method"><option>bKash</option><option>Nagad</option></select>
+        <label for="walletNumber">মোবাইল নম্বর</label><input id="walletNumber" inputmode="numeric" placeholder="01XXXXXXXXX" required pattern="01[0-9]{9}">
+        <label for="withdrawAmount">টাকার পরিমাণ (৳)</label><input id="withdrawAmount" type="number" min="100" step="10" placeholder="100" required>
+        <button class="button full" type="submit">উত্তোলনের অনুরোধ</button>
+        <p id="withdrawMessage" class="small-note"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section trust-section">
+    <p class="eyebrow">CLEAR & FAIR</p><h2>কাজের নিয়ম, সবার জন্য পরিষ্কার</h2>
+    <div class="trust-grid"><article><span class="trust-icon">✓</span><h3>আগে কোনো টাকা নয়</h3><p>কাজ পাওয়ার জন্য সদস্যদের কাছ থেকে অগ্রিম ফি নেওয়া হবে না।</p></article><article><span class="trust-icon">◎</span><h3>যাচাইয়ের পর পুরস্কার</h3><p>কাজের প্রমাণ দেখে অনুমোদনের পরই ব্যালেন্স যোগ হবে।</p></article><article><span class="trust-icon">৳</span><h3>স্বচ্ছ পেমেন্ট</h3><p>উত্তোলনের অনুরোধ ও তার অবস্থা ড্যাশবোর্ডে পরিষ্কার থাকবে।</p></article></div>
+  </section>
+  <section class="section faq-section">
+    <p class="eyebrow">FAQ</p><h2>সাধারণ প্রশ্ন</h2>
+    <details><summary>কাজ জমা দিলেই কি টাকা পাব?</summary><p>না। কাজ যাচাই করে অনুমোদন দেওয়ার পরই পুরস্কার যোগ হবে। ডেমো সাইটে বাস্তব পেমেন্ট চালু নেই।</p></details>
+    <details><summary>bKash বা Nagad-এ টাকা তোলা যাবে?</summary><p>এখানে উত্তোলনের অনুরোধের ফর্ম আছে। বাস্তব পেমেন্ট চালু করতে নিরাপদ সার্ভার, অর্থের উৎস এবং যাচাইকৃত পেমেন্ট প্রক্রিয়া লাগবে।</p></details>
+    <details><summary>বিজ্ঞাপনে ক্লিক করলে কি টাকা পাব?</summary><p>না। বিজ্ঞাপনে ক্লিক বা বিজ্ঞাপন দেখার বিনিময়ে পুরস্কার দেওয়া হবে না।</p></details>
+  </section>
+  <section class="section safety">
+    <h2>বিশ্বাসযোগ্য কাজের নীতি</h2>
+    <p>কোনো কাজের জন্য আগে টাকা জমা দিতে বলা হবে না। ভুয়া রিভিউ, ভুয়া ক্লিক, বিজ্ঞাপন দেখা/ক্লিকের বিনিময়ে পুরস্কার এবং স্প্যাম কাজ গ্রহণ করা হবে না। ক্লায়েন্টের কাজের পারিশ্রমিক নিশ্চিত না হলে কাজ প্রকাশ করবেন না।</p>
+  </section>
+</main>
+<footer><a class="brand" href="#"><span class="brand-mark">৳</span> EARN MONEY</a><span>© <span id="year"></span> EARN MONEY · Demo starter</span><div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></footer>
+
+<div id="taskModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-panel"><button class="close" data-close="taskModal" aria-label="বন্ধ করুন">×</button><p class="eyebrow">TASK DETAILS</p><h2 id="modalTitle"></h2><p id="modalDescription"></p><div class="task-meta" id="modalMeta"></div><form id="submitTaskForm"><input id="taskId" type="hidden"><label for="proof">কাজের উত্তর / প্রমাণ / লিংক</label><textarea id="proof" rows="4" required placeholder="আপনার কাজের উত্তর লিখুন..."></textarea><button class="button full">কাজ জমা দিন</button></form></div></div>
+
+<div id="adminModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="adminTitle"><div class="modal-panel wide"><button class="close" data-close="adminModal" aria-label="বন্ধ করুন">×</button><p class="eyebrow">DEMO ADMIN</p><h2 id="adminTitle">Admin Panel</h2><div class="warning">ডেমো অ্যাডমিন প্যানেল—কোনো পাসওয়ার্ড বা ডেটা এখানে নিরাপদ নয়। লাইভ সাইটে Firebase Auth/সার্ভার-ভিত্তিক role security ছাড়া ব্যবহার করবেন না।</div>
+  <form id="adminLoginForm" class="admin-login"><label for="adminPassword">ডেমো পাসওয়ার্ড (শুধু লোকাল টেস্ট)</label><input id="adminPassword" type="password" placeholder="Demo password: demo123"><button class="button">প্রবেশ</button><small>ডেমো পাসওয়ার্ড: demo123</small></form>
+  <div id="adminArea" class="hidden">
+    <div class="admin-columns"><form id="addTaskForm"><h3>নতুন কাজ যোগ করুন</h3><label>কাজের নাম</label><input id="newTitle" required><label>বিবরণ</label><textarea id="newDescription" required rows="3"></textarea><label>কাজের ধরন</label><select id="newCategory"><option>Typing</option><option>Data Entry</option><option>Content</option><option>Client Task</option><option>Survey</option></select><label>পুরস্কার (৳)</label><input id="newReward" type="number" min="1" required><button class="button full">কাজ প্রকাশ করুন</button></form>
+    <div><h3>জমা দেওয়া কাজ</h3><div id="submissionsList" class="submission-list"></div><h3>উত্তোলনের অনুরোধ</h3><div id="withdrawalsList" class="submission-list"></div></div></div>
+  </div>
+</div></div>
+<script src="app.js"></script>
+</body></html>
